@@ -1,0 +1,167 @@
+
+services:
+
+    participant0:
+        image: fedstellar
+        restart: no
+        volumes:
+            - D:\MasterProject\fedstellar-venv\Scripts\fedstellar:/fedstellar
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ipc: host
+        privileged: true
+        command:
+            - /bin/bash
+            - -c
+            - |
+                ifconfig && echo '192.168.50.1 host.docker.internal' >> /etc/hosts && python3.8 /fedstellar/fedstellar/node_start.py /fedstellar/app/config/fedstellar_DFL_29_11_2023_03_59_04/participant_0.json
+        networks:
+            fedstellar-net-scenario:
+                ipv4_address: 192.168.50.2
+            fedstellar-net-base:
+
+    participant1:
+        image: fedstellar
+        restart: no
+        volumes:
+            - D:\MasterProject\fedstellar-venv\Scripts\fedstellar:/fedstellar
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ipc: host
+        privileged: true
+        command:
+            - /bin/bash
+            - -c
+            - |
+                ifconfig && echo '192.168.50.1 host.docker.internal' >> /etc/hosts && python3.8 /fedstellar/fedstellar/node_start.py /fedstellar/app/config/fedstellar_DFL_29_11_2023_03_59_04/participant_1.json
+        networks:
+            fedstellar-net-scenario:
+                ipv4_address: 192.168.50.3
+            fedstellar-net-base:
+
+    participant2:
+        image: fedstellar
+        restart: no
+        volumes:
+            - D:\MasterProject\fedstellar-venv\Scripts\fedstellar:/fedstellar
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ipc: host
+        privileged: true
+        command:
+            - /bin/bash
+            - -c
+            - |
+                ifconfig && echo '192.168.50.1 host.docker.internal' >> /etc/hosts && python3.8 /fedstellar/fedstellar/node_start.py /fedstellar/app/config/fedstellar_DFL_29_11_2023_03_59_04/participant_2.json
+        networks:
+            fedstellar-net-scenario:
+                ipv4_address: 192.168.50.4
+            fedstellar-net-base:
+
+    participant3:
+        image: fedstellar
+        restart: no
+        volumes:
+            - D:\MasterProject\fedstellar-venv\Scripts\fedstellar:/fedstellar
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ipc: host
+        privileged: true
+        command:
+            - /bin/bash
+            - -c
+            - |
+                ifconfig && echo '192.168.50.1 host.docker.internal' >> /etc/hosts && python3.8 /fedstellar/fedstellar/node_start.py /fedstellar/app/config/fedstellar_DFL_29_11_2023_03_59_04/participant_3.json
+        networks:
+            fedstellar-net-scenario:
+                ipv4_address: 192.168.50.5
+            fedstellar-net-base:
+
+    participant4:
+        image: fedstellar
+        restart: no
+        volumes:
+            - D:\MasterProject\fedstellar-venv\Scripts\fedstellar:/fedstellar
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ipc: host
+        privileged: true
+        command:
+            - /bin/bash
+            - -c
+            - |
+                ifconfig && echo '192.168.50.1 host.docker.internal' >> /etc/hosts && python3.8 /fedstellar/fedstellar/node_start.py /fedstellar/app/config/fedstellar_DFL_29_11_2023_03_59_04/participant_4.json
+        networks:
+            fedstellar-net-scenario:
+                ipv4_address: 192.168.50.6
+            fedstellar-net-base:
+
+    participant5:
+        image: fedstellar
+        restart: no
+        volumes:
+            - D:\MasterProject\fedstellar-venv\Scripts\fedstellar:/fedstellar
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ipc: host
+        privileged: true
+        command:
+            - /bin/bash
+            - -c
+            - |
+                ifconfig && echo '192.168.50.1 host.docker.internal' >> /etc/hosts && python3.8 /fedstellar/fedstellar/node_start.py /fedstellar/app/config/fedstellar_DFL_29_11_2023_03_59_04/participant_5.json
+        networks:
+            fedstellar-net-scenario:
+                ipv4_address: 192.168.50.7
+            fedstellar-net-base:
+
+    participant6:
+        image: fedstellar
+        restart: no
+        volumes:
+            - D:\MasterProject\fedstellar-venv\Scripts\fedstellar:/fedstellar
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ipc: host
+        privileged: true
+        command:
+            - /bin/bash
+            - -c
+            - |
+                ifconfig && echo '192.168.50.1 host.docker.internal' >> /etc/hosts && python3.8 /fedstellar/fedstellar/node_start.py /fedstellar/app/config/fedstellar_DFL_29_11_2023_03_59_04/participant_6.json
+        networks:
+            fedstellar-net-scenario:
+                ipv4_address: 192.168.50.8
+            fedstellar-net-base:
+
+    participant7:
+        image: fedstellar
+        restart: no
+        volumes:
+            - D:\MasterProject\fedstellar-venv\Scripts\fedstellar:/fedstellar
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ipc: host
+        privileged: true
+        command:
+            - /bin/bash
+            - -c
+            - |
+                ifconfig && echo '192.168.50.1 host.docker.internal' >> /etc/hosts && python3.8 /fedstellar/fedstellar/node_start.py /fedstellar/app/config/fedstellar_DFL_29_11_2023_03_59_04/participant_7.json
+        networks:
+            fedstellar-net-scenario:
+                ipv4_address: 192.168.50.9
+            fedstellar-net-base:
+
+
+networks:
+    fedstellar-net-scenario:
+        name: fedstellar-net-scenario
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 192.168.50.1/24
+                  gateway: 192.168.50.1     
+    fedstellar-net-base:
+        name: fedstellar-net-base
+        external: true
